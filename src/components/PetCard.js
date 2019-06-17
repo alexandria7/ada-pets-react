@@ -11,11 +11,11 @@ const PetCard = (props) => {
   const { id, name, species, about, location } = props;
 
   const onPetDetailsClick = () => {
-    props.petDetailsClickCallback(id, name, species, about, location)
+    props.petDetailsClickCallback(id)
   }
 
   const onPetRemoveClick = () => {
-    props.petRemoveClickCallback(id, name, species, about, location)
+    props.petRemoveClickCallback(id)
   }
 
   return (
