@@ -5,11 +5,22 @@ import PetCard from './PetCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const PetList = (props) => {
-
+const PetList = (props) => { 
+  const pets = props.allPets.map((pet, i) => {
+    return (
+      <li key={i}>
+        <PetCard
+          index={i}
+          {...pet} />
+      </li>
+    );
+  });
 
   return (
     <div className="card-group">
+      <ul>
+        {pets}
+      </ul>
     </div>
   )
 }

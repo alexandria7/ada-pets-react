@@ -20,9 +20,6 @@ class App extends Component {
     };
   }
 
-
-
-
   render() {
     const { currentPet } = this.state;
     
@@ -37,7 +34,7 @@ class App extends Component {
         </section>
           { /* Wave 2:  Where Pet Details should appear */ }
         <section className="pet-list-wrapper">
-          { /* Wave 1:  Where PetList should appear */ }
+          <PetList allPets={this.state.petList}/>
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */ }
