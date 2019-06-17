@@ -14,26 +14,43 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    const lastId = pets[pets.length - 1]["id"];
+
     this.state = {
       petList: pets,
+      maxId: lastId,
       currentPet: undefined,
     };
   }
 
-  getPetDetails = (id) => {
+  getPetDetails = (index) => {
     this.setState({
-      currentPet: this.state.petList[id-1]
+      currentPet: this.state.petList[index]
     })
 
-    console.log(typeof this.state.petList[id-1])
+    console.log(typeof this.state.petList[index])
   }
 
-  removePet = (id) => {
+  removePet = (index) => {
     const listOfPets = this.state.petList;
-    listOfPets.splice(id-1, 1);
+    listOfPets.splice(index, 1);
     this.setState({
       petList: listOfPets
     });
+
+    console.log(this.state.petList.length)
+  }
+
+  addPetToList = (pet) => {
+    const listOfPets = this.state.petList;
+    listOfPets.push(pet);
+    const currentMaxId = this.state.maxId;
+    this.setState({
+      petList: listOfPets,
+      maxId: currentMaxId + 1
+    });
+
+    console.log(this.state.petList.length)
   }
 
   render() {
@@ -61,7 +78,10 @@ class App extends Component {
           />
         </section>
         <section className="new-pet-form-wrapper">
-          { /* Wave 3:  Where NewPetForm should appear */ }
+          <NewPetForm 
+            addPetCallback={this.addPetToList}
+            maxId={this.state.maxId}
+          />
         </section>
       </main>
     );

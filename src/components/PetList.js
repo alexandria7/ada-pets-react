@@ -6,12 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const PetList = (props) => { 
-  const showPetDetails = (id) => {
-    props.onSelectPet(id)
+  const showPetDetails = (index) => {
+    props.onSelectPet(index)
   }
 
-  const removePetDetails = (id) => {
-    props.onRemovePet(id)
+  const removePetDetails = (index) => {
+    props.onRemovePet(index)
   }
 
   const allPets = props.pets.map((pet, i) => {
