@@ -10,13 +10,19 @@ const PetList = (props) => {
     props.onSelectPet(id)
   }
 
+  const removePetDetails = (id) => {
+    props.onRemovePet(id)
+  }
+
   const allPets = props.pets.map((pet, i) => {
     return (
       <li key={i}>
         <PetCard
           index={i}
           {...pet} 
-          petDetailsClickCallback={showPetDetails}/>
+          petDetailsClickCallback={showPetDetails}
+          petRemoveClickCallback={removePetDetails}
+          />
       </li>
     );
   });

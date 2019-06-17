@@ -24,8 +24,16 @@ class App extends Component {
     this.setState({
       currentPet: this.state.petList[id-1]
     })
-    
+
     console.log(typeof this.state.petList[id-1])
+  }
+
+  removePet = (id) => {
+    const listOfPets = this.state.petList;
+    listOfPets.splice(id-1, 1);
+    this.setState({
+      petList: listOfPets
+    });
   }
 
   render() {
@@ -49,6 +57,7 @@ class App extends Component {
           <PetList 
             pets={this.state.petList}
             onSelectPet={this.getPetDetails}
+            onRemovePet={this.removePet}
           />
         </section>
         <section className="new-pet-form-wrapper">
