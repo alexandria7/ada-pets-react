@@ -57,6 +57,7 @@ class NewPetForm extends Component {
           <label htmlFor="name">Name:</label>
           <input
             name="name"
+            required
             onChange={this.onChangeHandler}
             value={this.state.name}
           />
@@ -81,6 +82,7 @@ class NewPetForm extends Component {
           <label htmlFor="species">Species:</label>
           <input 
             name="species"
+            required
             value={this.state.species}
             onChange={this.onChangeHandler}/>
         </div>
@@ -88,6 +90,7 @@ class NewPetForm extends Component {
           <label htmlFor="images">Image:</label>
           <input 
             name="images"
+            required
             value={this.state.images}
             onChange={this.onChangeHandler}/>
         </div>
