@@ -8,6 +8,7 @@ import './PetDetails.css';
 
 const PetDetails = (props) => {
   const { name, location, about, species, images } = props.currentPet;
+
   return (
     <section className="pet-details">
       <section className="pet-details--header">

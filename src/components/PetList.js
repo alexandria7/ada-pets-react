@@ -6,12 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const PetList = (props) => { 
-  const pets = props.allPets.map((pet, i) => {
+  const showPetDetails = (id) => {
+    props.onSelectPet(id)
+  }
+
+  const allPets = props.pets.map((pet, i) => {
     return (
       <li key={i}>
         <PetCard
           index={i}
-          {...pet} />
+          {...pet} 
+          petDetailsClickCallback={showPetDetails}/>
       </li>
     );
   });
@@ -19,7 +24,7 @@ const PetList = (props) => {
   return (
     <div className="card-group">
       <ul>
-        {pets}
+        {allPets}
       </ul>
     </div>
   )

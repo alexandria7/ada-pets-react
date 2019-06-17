@@ -20,6 +20,14 @@ class App extends Component {
     };
   }
 
+  getPetDetails = (id) => {
+    this.setState({
+      currentPet: this.state.petList[id-1]
+    })
+    
+    console.log(typeof this.state.petList[id-1])
+  }
+
   render() {
     const { currentPet } = this.state;
     
@@ -32,9 +40,16 @@ class App extends Component {
           { /* Wave 4:  Place to add the SearchBar component */ }
           <SearchBar />
         </section>
-          { /* Wave 2:  Where Pet Details should appear */ }
+
+        <section>
+          {currentPet !== undefined ? <PetDetails currentPet={currentPet}/> : ""}
+        </section>
+
         <section className="pet-list-wrapper">
-          <PetList allPets={this.state.petList}/>
+          <PetList 
+            pets={this.state.petList}
+            onSelectPet={this.getPetDetails}
+          />
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */ }
