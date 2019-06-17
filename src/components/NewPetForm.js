@@ -36,7 +36,7 @@ class NewPetForm extends Component {
       location: this.state.location,
       about: this.state.about,
       species: this.state.species,
-      images: this.state.images,
+      images: [this.state.images],
     });
 
     this.setState({
